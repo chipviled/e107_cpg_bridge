@@ -152,7 +152,7 @@ There can be problems on configurations with register_globals turned on. So, if 
         echo $text;
         global $CONFIG;
         $qr = "UPDATE `{$CONFIG['TABLE_BRIDGE']}` 
-                SET `value` = '".mysql_escape_string($BRIDGE['relative_path_to_config_file'] )."'
+                SET `value` = '".cpg_db_escape_string($BRIDGE['relative_path_to_config_file'] )."'
                 WHERE name = 'relative_path_to_config_file'";
         $this->query($qr);
         die;
@@ -171,7 +171,7 @@ There can be problems on configurations with register_globals turned on. So, if 
             global $CONFIG;
             $BRIDGE['full_forum_url'] = $e107->base_path;
             $qr = "UPDATE `{$CONFIG['TABLE_BRIDGE']}` 
-                    SET `value` = '".mysql_escape_string($BRIDGE['full_forum_url'] )."'
+                    SET `value` = '".cpg_db_escape_string($BRIDGE['full_forum_url'] )."'
                     WHERE name = 'full_forum_url'";
             $this->query($qr);
         }
